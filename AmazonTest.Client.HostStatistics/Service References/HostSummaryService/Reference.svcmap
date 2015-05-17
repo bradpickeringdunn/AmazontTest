@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="73e90ada-6753-4300-bb8d-37a0ab62aa96" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49830/HostSummaryService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HostSummaryService.xsd" MetadataType="Schema" ID="afaa02b4-e22a-4a1b-9659-109c6c9f8ef3" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HostSummaryService1.xsd" MetadataType="Schema" ID="d2d6eb37-6bfc-46c0-8149-b24ea31fcd42" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?xsd=xsd3" />
+    <MetadataFile FileName="HostSummaryService2.xsd" MetadataType="Schema" ID="5b697dfb-d848-422a-8fea-46fbffd0ce90" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HostSummaryService.wsdl" MetadataType="Wsdl" ID="b4228dfa-9a99-4fe1-bcb4-030fd606d953" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?wsdl" />
+    <MetadataFile FileName="HostSummaryService.disco" MetadataType="Disco" ID="d0b32d0a-3eca-4231-902a-b2d749da11bd" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?disco" />
+    <MetadataFile FileName="HostSummaryService3.xsd" MetadataType="Schema" ID="7b86f430-8371-4571-9c64-0bfd62a26d36" SourceId="1" SourceUrl="http://localhost:49830/HostSummaryService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

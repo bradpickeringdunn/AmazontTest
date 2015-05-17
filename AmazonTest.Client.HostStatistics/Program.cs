@@ -1,16 +1,9 @@
-﻿using AmazonTest.Client.HostStatistics.Fleet;
-using AmazonTest.Domain.Persistance;
-using AmazonTest.Domain.Services;
+﻿using AmazonTest.Client.HostStatistics.FleetService;
+using AmazonTest.Client.HostStatistics.HostSummaryService;
 using AmazonTest.Service.Models.Host;
-using Backbone.Repository;
 using Microsoft.Practices.Unity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace AmazonTest.Client.HostStatistics
 {
@@ -18,29 +11,21 @@ namespace AmazonTest.Client.HostStatistics
     {
         static void Main()
         {
-            Unity.Initalize();
-            IFleets fleets = Unity.containers.Resolve<IFleets>();
+            var fleetService = new FleetServiceClient();
+            var hostSummaryService = new HostSummaryServiceClient();
 
             Console.WriteLine("Loading the fellt state......");
 
             var fleetRequest = new FleetRequest(Config.FleetStateFilePath);
-            var fleetStatusResult = fleets.LoadFleetStatus(fleetRequest);
+            var fleetStatusResult = fleetService.LoadFleetState(fleetRequest);
 
-            Console.WriteLine("\r\r");
-            Console.WriteLine("Fleet state results.");
-
-            DisplayFleetStatus(fleetStatusResult);
-
-            if (fleetStatusResult.Notifications.HasErrors)
+            if (!fleetStatusResult.Notifications.HasErrors)
             {
-                Console.Write("The following errors occured");
-                foreach (var error in fleetStatusResult.Notifications)
-                {
-                    Console.WriteLine(error);
-                }
-            }
-            else
-            {
+                Console.WriteLine("\r\r");
+                Console.WriteLine("Fleet state results.");
+
+                DisplayFleetStatus(fleetStatusResult);
+
                 Console.WriteLine("The follow is a smmary of the fleet status");
                 Console.WriteLine("\r\r");
 
@@ -49,10 +34,17 @@ namespace AmazonTest.Client.HostStatistics
                     Hosts = fleetStatusResult.Hosts
                 };
 
-                var result = fleets.SummarizeHosts(summaryRequest);
+                var result = hostSummaryService.SummarizeHostStatistics(summaryRequest);
 
                 DisplaySummary(result);
-
+            }
+            else
+            {
+                Console.Write("The following errors occured");
+                foreach (var error in fleetStatusResult.Notifications)
+                {
+                    Console.WriteLine(error);
+                }
             }
 
             Console.ReadLine();

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="237fafe8-8f74-43b3-8020-6be2b2e235bf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:49830/FleetService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FleetService.wsdl" MetadataType="Wsdl" ID="31832e38-e308-40a2-a5ff-329fcef68a18" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?wsdl" />
+    <MetadataFile FileName="FleetService.disco" MetadataType="Disco" ID="eda14ee9-ec53-4859-a9eb-e78648e8e554" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?disco" />
+    <MetadataFile FileName="FleetService.xsd" MetadataType="Schema" ID="8bd90c13-64b2-4aa1-845b-2d5143d5bfc9" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FleetService1.xsd" MetadataType="Schema" ID="900d426e-eb81-4afe-8e18-0e5721d6c055" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?xsd=xsd3" />
+    <MetadataFile FileName="FleetService2.xsd" MetadataType="Schema" ID="38cbf756-1544-4dab-b784-d7e4afc5e619" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FleetService3.xsd" MetadataType="Schema" ID="ff23459c-7a21-4154-abbf-a792e47035dd" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?xsd=xsd4" />
+    <MetadataFile FileName="FleetService4.xsd" MetadataType="Schema" ID="3a5e77e5-15ed-4657-bf43-bcb2ab9cd891" SourceId="1" SourceUrl="http://localhost:49830/FleetService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
