@@ -1,5 +1,6 @@
 ﻿using AmazonTest.Domain.Persistance;
 using AmazonTest.Domain.Services;
+using AmazonTest.Domain.Services.Fleet;
 using Backbone.Logging;
 using Microsoft.Practices.Unity;
 using System;

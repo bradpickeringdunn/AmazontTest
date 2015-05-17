@@ -3,21 +3,25 @@ using AmazonTest.Domain.Properties;
 using AmazonTest.Service.Models.Host;
 using Backbone.ErrorHandling;
 using Backbone.Logging;
-using Backbone.Services.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace AmazonTest.Domain.Services
+namespace AmazonTest.Domain.Services.Host
 {
     public class HostService : IHosService
     {
+        #region Locals
+        
         private NotificationCollection Notifications = new NotificationCollection();
         private ILogger Logger;
         private IFileRepository Repository { get; set; }
 
+        #endregion
+
+        #region Constructo
+        
         /// <summary>
         /// Constructor injecting dependancies
         /// </summary>
@@ -27,6 +31,10 @@ namespace AmazonTest.Domain.Services
             this.Repository = repository;
         }
 
+        #endregion
+
+        #region Methods
+        
         public HostSummaryResult SummarizeHostStatistics(HostSummaryRequest request)
         {
             var hostSummaryResults = new HostSummaryResult();
@@ -130,5 +138,7 @@ namespace AmazonTest.Domain.Services
                 Notifications.Add(ErrorMessages.ErrorsummarizingHosts);
             }
         }
+
+        #endregion
     }
 }

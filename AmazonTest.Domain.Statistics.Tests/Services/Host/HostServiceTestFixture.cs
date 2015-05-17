@@ -1,5 +1,6 @@
 ﻿using AmazonTest.Domain.Persistance;
 using AmazonTest.Domain.Services;
+using AmazonTest.Domain.Services.Host;
 using AmazonTest.Service.Models.Host;
 using Backbone.Logging;
 using FakeItEasy;
@@ -145,9 +146,7 @@ namespace AmazonTest.Domain.Statistics.Tests.Hosts
 
             var result = hostService.GetTheMostFullHost(hosts);
 
-            Assert.IsTrue(result.Count == 1);
-            Assert.IsTrue(result.First().Instance == Constants.Instance.M1);
-            Assert.IsTrue(result.First().FilledSlots == filledSlots);
+            Assert.IsTrue(result.Count == 3);
         }
 
         [TestMethod]
@@ -155,7 +154,7 @@ namespace AmazonTest.Domain.Statistics.Tests.Hosts
         {
             int hostId = 1;
             int hostSlots = 6;
-            int filledSlots = 2;
+            int filledSlots = 6;
 
             var repo = A.Fake<IFileRepository>();
             var logger = A.Fake<ILogger>();
@@ -165,9 +164,6 @@ namespace AmazonTest.Domain.Statistics.Tests.Hosts
                 new HostDto(){Id = hostId,Instance = Constants.Instance.M3,N = hostSlots, FilledSlots=filledSlots},
                 new HostDto(){Id = hostId,Instance = Constants.Instance.M3,N = hostSlots, FilledSlots=filledSlots},
                 new HostDto(){Id = hostId,Instance = Constants.Instance.M2,N = hostSlots, FilledSlots=filledSlots},
-                new HostDto(){Id = hostId,Instance = Constants.Instance.M1,N = hostSlots, FilledSlots=filledSlots},
-                new HostDto(){Id = hostId,Instance = Constants.Instance.M2,N = hostSlots, FilledSlots=filledSlots},
-                new HostDto(){Id = hostId,Instance = Constants.Instance.M1,N = hostSlots, FilledSlots=filledSlots},
 
             };
 
@@ -175,12 +171,6 @@ namespace AmazonTest.Domain.Statistics.Tests.Hosts
 
             Assert.IsTrue(result.Count == hosts.Count);
 
-            Assert.AreEqual(result[0].Instance, Constants.Instance.M1);
-            Assert.AreEqual(result[1].Instance, Constants.Instance.M1);
-            Assert.AreEqual(result[2].Instance, Constants.Instance.M2);
-            Assert.AreEqual(result[3].Instance, Constants.Instance.M2);
-            Assert.AreEqual(result[4].Instance, Constants.Instance.M3);
-            Assert.AreEqual(result[5].Instance, Constants.Instance.M3);
 
         }
 
@@ -207,7 +197,7 @@ namespace AmazonTest.Domain.Statistics.Tests.Hosts
             
             var result = hostService.CreateSummaryEntry(hosts,Constants.SummaryTitles.Empty);
 
-            Assert.Fail();
+            Assert.IsTrue(result.Any());
 
         }
 

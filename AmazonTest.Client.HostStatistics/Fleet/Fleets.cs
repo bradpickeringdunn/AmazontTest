@@ -1,16 +1,21 @@
-﻿using AmazonTest.Domain.Services;
+﻿using AmazonTest.Domain.Services.Fleet;
+using AmazonTest.Domain.Services.Host;
 using AmazonTest.Service.Models.Host;
-using Backbone.Services.Results;
+using Backbone.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AmazonTest.Client.HostStatistics.Fleet
 {
     public class Fleets : IFleets
     {
+        private ILogger Logger { get; set; }
+        const string GeneralError = "A general exception occured.";
+
+        public Fleets(ILogger logger)
+        {
+            Logger = logger;
+        }
+
         private IFleetService FleetService{get;set;}
 
         private IHosService HostService { get; set; }
@@ -23,12 +28,36 @@ namespace AmazonTest.Client.HostStatistics.Fleet
         
         public FleetResult LoadFleetStatus(FleetRequest request)
         {
-            return FleetService.LoadFleet(request);
+            var result = new FleetResult();
+
+            try
+            {
+                result = FleetService.LoadFleet(request);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                result.Notifications.Add(GeneralError);
+            }
+
+            return result;
         }
 
         public HostSummaryResult SummarizeHosts(HostSummaryRequest request)
         {
-            return HostService.SummarizeHostStatistics(request);
+            var result = new HostSummaryResult();
+
+            try
+            {
+                result = HostService.SummarizeHostStatistics(request);
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                result.Notifications.Add(GeneralError);
+            }
+
+            return result;
         }
 
     }

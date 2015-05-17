@@ -1,6 +1,8 @@
 ﻿using AmazonTest.Client.HostStatistics.Fleet;
 using AmazonTest.Domain.Persistance;
 using AmazonTest.Domain.Services;
+using AmazonTest.Domain.Services.Fleet;
+using AmazonTest.Domain.Services.Host;
 using Backbone.Logging;
 using Backbone.Repository;
 using Microsoft.Practices.Unity;
@@ -28,7 +30,7 @@ namespace AmazonTest.Client.HostStatistics
                 WithName.Default);
 
             containers.RegisterType<IFileRepository, FileRepository>();
-            containers.RegisterType<IFleetService, domain.FleetService>();
+            containers.RegisterType<IFleetService, domain.Fleet.FleetService>();
             containers.RegisterType<ILogger, DebugLogger>();
             containers.RegisterType<IHosService, HostService>();
             containers.RegisterType<IFleets, Fleets>();

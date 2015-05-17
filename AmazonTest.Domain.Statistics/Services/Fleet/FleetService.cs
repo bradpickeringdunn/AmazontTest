@@ -9,16 +9,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AmazonTest.Domain.Services
+namespace AmazonTest.Domain.Services.Fleet
 {
     public class FleetService : IFleetService
     {
+        #region Locals
+        
         private List<string> Instances = new List<string>();
         private NotificationCollection notifications = new NotificationCollection();
-
         private ILogger Logger { get; set; }
         private IFileRepository Repository { get; set; }
 
+        #endregion
+
+        #region Constructor
+        
         public FleetService(IFileRepository repository, ILogger logger)
         {
             Guardian.ArgumentNotNull(logger, "logger");
@@ -32,6 +37,10 @@ namespace AmazonTest.Domain.Services
             Instances.Add(Constants.Instance.M3);
         }
 
+        #endregion
+
+        #region Methods
+        
         public FleetResult LoadFleet(FleetRequest request)
         {
             Guardian.ArgumentNotNull(request, "request");
@@ -89,7 +98,10 @@ namespace AmazonTest.Domain.Services
                     }
                 }
             }
+
             return result;
-        }        
+        }
+
+        #endregion
     }
 }
